@@ -6,6 +6,9 @@ LLMs are trained on a large but fixed corpus of data, limiting their ability to 
 
 ![rag_detail_v2](https://github.com/langchain-ai/rag-from-scratch/assets/122662504/54a2d76c-b07e-49e7-b4ce-fc45667360a1)
 
+![屏幕截图 2024-08-25 200023](https://github.com/user-attachments/assets/c50d24a7-89d1-4845-b51a-1c2896390177)
+
+
 ## Env requirement
 - `pip install -r requirements.txt`
 - get your langchain API Key on openai, you may need to [register] (VPN required) here, and set it in `.env.example`, copying required .env file
