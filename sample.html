@@ -3,17 +3,68 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Send Question to FastAPI</title>
+<title>Ask anything about Zubin!</title>
 <style>
     body {
         font-family: Arial, sans-serif;
         text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #questionInput {
+        width: 100%;
+        padding: 8px;
+        margin-top: 20px;
+        box-sizing: border-box;
+    }
+
+    #result {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #f9f9f9;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        text-align: left;
     }
 </style>
 </head>
 <body>
-<h1>Send Question to FastAPI</h1>
-<button id="sendQuestionBtn">Send Question</button>
+<div class="container">
+    <h1>Ask anything about The Wealth of Nations!</h1>
+    <input type="text" id="questionInput" placeholder="Enter your question...">
+    <button id="sendQuestionBtn">Send Question!</button>
+    <div id="result"></div>
+</div>
 
 <script>
 document.getElementById("sendQuestionBtn").addEventListener("click", async function() {
@@ -28,17 +79,16 @@ document.getElementById("sendQuestionBtn").addEventListener("click", async funct
         return response.json();
     };
 
-    const question = "Tell me something about Zubin";
+    const question = document.getElementById("questionInput").value;
 
-    // 发送POST请求给FastAPI
     postData('http://localhost:8000/answer_question', { question: question })
         .then(data => {
             console.log(data);
-            alert("Response from FastAPI: " + JSON.stringify(data));
+            document.getElementById("result").innerText = "Response from FastAPI: " + data.result;
         })
         .catch(error => {
             console.error('Error:', error);
-            alert("Error occurred. Please check the console for details.");
+            document.getElementById("result").innerText = "Error occurred. Please check the console for details.";
         });
 });
 </script>
