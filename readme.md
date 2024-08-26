@@ -1,4 +1,4 @@
-# AI assistant for Zubin
+# AI assistant
 This is a AI assistant bot developed based on `Retrieval-Augmented Generation`(RAG). 
 
 ## What is RAG?
